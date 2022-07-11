@@ -1,0 +1,35 @@
+<div class="container">
+  <div id="hp2">
+    <h2>Check Your Account Detail Here</h2>
+    <form #dipeshForm="ngForm" (ngSubmit)="sendFormData(dipeshForm.value)" class="">
+      <label class="sp1">First Name</label>
+      <input type="text" name="fName" required minlength="3" #fName="ngModel" ngModel pattern="[a-zA-Z ]*"><br>
+      <span class="sp1" style="color: red;" *ngIf="fName.invalid && fName.touched">Please enter first name that is at least 3 characters long.</span><br>
+
+      <label class="sp1">Last Name </label>
+      <input type="text" name="lName" required minlength="3" #lName="ngModel" ngModel><br>
+      <span class="sp3" style="color: red;" *ngIf="lName.invalid && lName.touched">Please enter last name that is at least 3 characters long.</span><br>
+
+      <label class="sp1">City</label>
+      <input class="sp5" type="text" name="city" required minlength="3" #city="ngModel" ngModel><br>
+      <span class="sp3" style="color: red;" *ngIf="city.invalid && city.touched ">Please enter Valid City Name.</span><br>
+
+      <label class="sp1">State</label>
+      <input class="sp5" type="text" name="state" required minlength="2" #state="ngModel" ngModel><br>
+      <span class="sp3" style="color: red;" *ngIf="state.invalid && state.touched ">Please enter Valid State Name.</span><br>
+
+      <button type="submit" [disabled]="dipeshForm.invalid" class="sp4" class="btn btn-success btn-lg">Submit</button>
+      <input type="reset" value="Reset" class="btn btn-warning  btn-lg" />
+    </form><br><br>
+  </div>
+</div>
+<div class="hp1">
+    <ul *ngFor="let v of item">
+        <hr />
+        <li><b>First Name</b> {{v.fName}}</li>
+        <li><b> Last Name</b> {{v.lName}}</li>
+        <li><b>City</b> {{v.city}}</li>
+        <li><b>State</b> {{v.state}}</li>
+        <li><button class="btn  btn-primary" (click)="Deleteinfo(v)"> Delete</button></li>
+      </ul>      
+  </div>
